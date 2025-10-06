@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { User, Calendar, ArrowLeft } from 'lucide-react';
+import { User, ArrowLeft } from 'lucide-react';
 import { LoveMeterInput } from '../types';
 
 interface LoveMeterFormProps {
@@ -11,8 +11,6 @@ interface LoveMeterFormProps {
 export default function LoveMeterForm({ onSubmit, onBack }: LoveMeterFormProps) {
   const [partner1Name, setPartner1Name] = useState('');
   const [partner2Name, setPartner2Name] = useState('');
-  const [partner1Birth, setPartner1Birth] = useState('');
-  const [partner2Birth, setPartner2Birth] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -21,12 +19,10 @@ export default function LoveMeterForm({ onSubmit, onBack }: LoveMeterFormProps) 
 
     const data: LoveMeterInput = {
       partner1: {
-        name: partner1Name.trim(),
-        birthDate: partner1Birth || undefined
+        name: partner1Name.trim()
       },
       partner2: {
-        name: partner2Name.trim(),
-        birthDate: partner2Birth || undefined
+        name: partner2Name.trim()
       },
       timestamp: new Date()
     };
@@ -86,19 +82,6 @@ export default function LoveMeterForm({ onSubmit, onBack }: LoveMeterFormProps) 
                   required
                 />
               </div>
-              
-              <div className="border-4 border-gray-300 p-8">
-                <label className="flex items-center gap-3 text-gray-600 font-bold text-lg mb-6 uppercase tracking-wide">
-                  <Calendar className="w-5 h-5" />
-                  BIRTH DATE (OPTIONAL)
-                </label>
-                <input
-                  type="date"
-                  value={partner1Birth}
-                  onChange={(e) => setPartner1Birth(e.target.value)}
-                  className="w-full bg-white border-4 border-gray-300 text-black text-lg font-medium p-4 focus:border-accent focus:outline-none transition-colors"
-                />
-              </div>
             </div>
 
             <div className="space-y-8">
@@ -114,19 +97,6 @@ export default function LoveMeterForm({ onSubmit, onBack }: LoveMeterFormProps) 
                   placeholder="Enter second name"
                   className="w-full bg-white border-4 border-gray-300 text-black text-lg font-medium p-4 placeholder-gray-500 focus:border-accent focus:outline-none transition-colors"
                   required
-                />
-              </div>
-              
-              <div className="border-4 border-gray-300 p-8">
-                <label className="flex items-center gap-3 text-gray-600 font-bold text-lg mb-6 uppercase tracking-wide">
-                  <Calendar className="w-5 h-5" />
-                  BIRTH DATE (OPTIONAL)
-                </label>
-                <input
-                  type="date"
-                  value={partner2Birth}
-                  onChange={(e) => setPartner2Birth(e.target.value)}
-                  className="w-full bg-white border-4 border-gray-300 text-black text-lg font-medium p-4 focus:border-accent focus:outline-none transition-colors"
                 />
               </div>
             </div>

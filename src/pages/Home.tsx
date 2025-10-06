@@ -5,7 +5,7 @@ import LoveMeterForm from '@/components/LoveMeterForm';
 import LoadingAnimation from '@/components/LoadingAnimation';
 import ResultsDisplay from '@/components/ResultsDisplay';
 import ParticleBackground from '@/components/ParticleBackground';
-import { calculateLoveCompatibility } from '@/utils/loveCalculator';
+import { generateLoveMeterResult } from '@/utils/loveCalculator';
 import { LoveMeterInput, LoveMeterResult } from '@/types';
 
 type AppState = 'hero' | 'form' | 'loading' | 'results';
@@ -22,7 +22,7 @@ export default function Home() {
     setCurrentState('loading');
     
     setTimeout(() => {
-      const calculatedResult = calculateLoveCompatibility(input);
+      const calculatedResult = generateLoveMeterResult(input);
       setResult(calculatedResult);
       setCurrentState('results');
     }, 3000);

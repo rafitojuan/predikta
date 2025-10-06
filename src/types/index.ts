@@ -1,11 +1,9 @@
 export interface LoveMeterInput {
   partner1: {
     name: string;
-    birthDate?: string;
   };
   partner2: {
     name: string;
-    birthDate?: string;
   };
   timestamp: Date;
 }

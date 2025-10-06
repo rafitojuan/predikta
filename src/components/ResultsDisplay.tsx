@@ -5,10 +5,11 @@ import { LoveMeterResult } from '../types';
 interface ResultsDisplayProps {
   result: LoveMeterResult;
   onTryAgain: () => void;
+  onBackToHome: () => void;
 }
 
-export default function ResultsDisplay({ result, onTryAgain }: ResultsDisplayProps) {
-  if (!result || !result.partner1 || !result.partner2) {
+export default function ResultsDisplay({ result, onTryAgain, onBackToHome }: ResultsDisplayProps) {
+  if (!result || !result.input || !result.input.partner1 || !result.input.partner2) {
     return (
       <section className="min-h-screen flex items-center justify-center bg-white">
         <div className="text-center">
@@ -20,7 +21,7 @@ export default function ResultsDisplay({ result, onTryAgain }: ResultsDisplayPro
   }
 
   const handleShare = () => {
-    const shareText = `${result.partner1} & ${result.partner2}: ${result.score}% Love Compatibility - ${result.category}`;
+    const shareText = `${result.input.partner1.name} & ${result.input.partner2.name}: ${result.compatibility}% Love Compatibility - ${result.category}`;
     if (navigator.share) {
       navigator.share({
         title: 'Predikta Love Meter Result',
@@ -45,7 +46,7 @@ export default function ResultsDisplay({ result, onTryAgain }: ResultsDisplayPro
             COMPATIBILITY RESULT
           </h2>
           <div className="text-2xl md:text-3xl font-bold text-gray-700 mb-4">
-            {result.partner1} & {result.partner2}
+            {result.input.partner1.name} & {result.input.partner2.name}
           </div>
         </motion.div>
 
@@ -61,7 +62,7 @@ export default function ResultsDisplay({ result, onTryAgain }: ResultsDisplayPro
               className="absolute inset-0 border-8 border-accent"
               initial={{ clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0 100%)' }}
               animate={{ 
-                clipPath: `polygon(0 100%, 100% 100%, 100% ${100 - result.score}%, 0 ${100 - result.score}%)`
+                clipPath: `polygon(0 100%, 100% 100%, 100% ${100 - result.compatibility}%, 0 ${100 - result.compatibility}%)`
               }}
               transition={{ delay: 0.5, duration: 1.5, ease: "easeOut" }}
             />
@@ -73,7 +74,7 @@ export default function ResultsDisplay({ result, onTryAgain }: ResultsDisplayPro
                 className="text-center"
               >
                 <div className="text-6xl font-black text-black mb-2">
-                  {result.score}%
+                  {result.compatibility}%
                 </div>
                 <div className="text-lg font-bold text-gray-600 uppercase tracking-wide">
                   {result.category}
@@ -127,6 +128,15 @@ export default function ResultsDisplay({ result, onTryAgain }: ResultsDisplayPro
               <RotateCcw className="w-5 h-5" />
               TRY AGAIN
             </div>
+          </motion.button>
+
+          <motion.button
+            onClick={onBackToHome}
+            className="bg-gray-600 text-white text-lg font-bold px-8 py-4 border-4 border-gray-600 hover:bg-gray-700 hover:border-gray-700 transition-colors duration-200 uppercase tracking-wide"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            HOME
           </motion.button>
         </motion.div>
 

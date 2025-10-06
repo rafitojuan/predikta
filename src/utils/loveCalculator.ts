@@ -6,13 +6,9 @@ export function calculateLoveCompatibility(data: LoveMeterInput): number {
   const name1Score = calculateNameScore(partner1.name);
   const name2Score = calculateNameScore(partner2.name);
   
-  const birthScore1 = partner1.birthDate ? calculateBirthScore(partner1.birthDate) : 50;
-  const birthScore2 = partner2.birthDate ? calculateBirthScore(partner2.birthDate) : 50;
-  
   const nameCompatibility = Math.abs(name1Score - name2Score);
-  const birthCompatibility = Math.abs(birthScore1 - birthScore2);
   
-  const baseScore = (100 - nameCompatibility * 2) * 0.6 + (100 - birthCompatibility) * 0.4;
+  const baseScore = 100 - nameCompatibility * 2;
   
   const consistentRandom = getConsistentRandom(partner1.name + partner2.name);
   const finalScore = Math.max(0, Math.min(100, baseScore + (consistentRandom - 0.5) * 20));
@@ -29,15 +25,6 @@ function calculateNameScore(name: string): number {
   }
   
   return score % 50;
-}
-
-function calculateBirthScore(birthDate: string): number {
-  const date = new Date(birthDate);
-  const day = date.getDate();
-  const month = date.getMonth() + 1;
-  const year = date.getFullYear();
-  
-  return (day + month + (year % 100)) % 50;
 }
 
 function getConsistentRandom(seed: string): number {
