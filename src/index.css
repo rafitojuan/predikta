@@ -1,17 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
   font-weight: 400;
 
-  color-scheme: dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #000000;
+  color-scheme: light;
+  color: #000000;
+  background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -26,7 +26,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background: #000000;
+  background: #ffffff;
   overflow-x: hidden;
 }
 
@@ -38,6 +38,40 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.brutalist-button {
+  @apply font-bold uppercase tracking-wide border-4 transition-colors duration-200;
+  box-shadow: none;
+}
+
+.brutalist-button:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.brutalist-button:active {
+  transform: none;
+  box-shadow: none;
+}
+
+.brutalist-input {
+  @apply bg-white border-4 border-black text-black font-medium transition-colors duration-200;
+}
+
+.brutalist-input:focus {
+  @apply outline-none border-accent;
 }
 
 .glitch {

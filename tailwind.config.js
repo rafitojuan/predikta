@@ -6,44 +6,30 @@ export default {
   theme: {
     container: {
       center: true,
+      padding: '2rem',
     },
     extend: {
       fontFamily: {
-        'black': ['Inter', 'system-ui', 'sans-serif'],
+        'sans': ['Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
-        'electric-blue': '#0066FF',
-        'neon-pink': '#FF0066',
-        'lime-green': '#00FF66',
-        'neon-orange': '#FF6600',
-        'neon-purple': '#6600FF',
+        'accent': '#FF0066',
+        'accent-dark': '#CC0052',
+      },
+      spacing: {
+        '18': '4.5rem',
+        '22': '5.5rem',
+        '26': '6.5rem',
+        '30': '7.5rem',
       },
       animation: {
-        'glitch': 'glitch 2s infinite',
-        'pulse-neon': 'pulse-neon 2s ease-in-out infinite alternate',
-        'float': 'float 3s ease-in-out infinite',
+        'subtle-pulse': 'subtle-pulse 2s ease-in-out infinite',
       },
       keyframes: {
-        glitch: {
-          '0%, 100%': { transform: 'translate(0)' },
-          '20%': { transform: 'translate(-2px, 2px)' },
-          '40%': { transform: 'translate(-2px, -2px)' },
-          '60%': { transform: 'translate(2px, 2px)' },
-          '80%': { transform: 'translate(2px, -2px)' },
+        'subtle-pulse': {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.8' },
         },
-        'pulse-neon': {
-          '0%': { boxShadow: '0 0 5px #ff0066, 0 0 10px #ff0066, 0 0 15px #ff0066' },
-          '100%': { boxShadow: '0 0 10px #ff0066, 0 0 20px #ff0066, 0 0 30px #ff0066' },
-        },
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-20px)' },
-        },
-      },
-      boxShadow: {
-        'neon-pink': '0 0 20px #ff0066',
-        'neon-blue': '0 0 20px #0066ff',
-        'neon-green': '0 0 20px #00ff66',
       },
     },
   },
