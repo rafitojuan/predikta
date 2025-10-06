@@ -11,10 +11,10 @@ export default function LoadingAnimation() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl md:text-5xl font-black text-black mb-8 tracking-tight">
-            CALCULATING...
+            MENGKALKULASI...
           </h2>
           <p className="text-lg text-gray-600 font-medium">
-            Analyzing compatibility
+            Menganalisis kecocokan
           </p>
         </motion.div>
 
@@ -55,7 +55,7 @@ export default function LoadingAnimation() {
           animate={{ opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         >
-          Please wait...
+          Tunggu bentar...
         </motion.div>
       </div>
     </section>

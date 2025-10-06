@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
-import { Share2, RotateCcw } from 'lucide-react';
-import { LoveMeterResult } from '../types';
+import { motion } from "framer-motion";
+import { Share2, RotateCcw } from "lucide-react";
+import { LoveMeterResult } from "../types";
 
 interface ResultsDisplayProps {
   result: LoveMeterResult;
@@ -8,13 +8,24 @@ interface ResultsDisplayProps {
   onBackToHome: () => void;
 }
 
-export default function ResultsDisplay({ result, onTryAgain, onBackToHome }: ResultsDisplayProps) {
-  if (!result || !result.input || !result.input.partner1 || !result.input.partner2) {
+export default function ResultsDisplay({
+  result,
+  onTryAgain,
+  onBackToHome,
+}: ResultsDisplayProps) {
+  if (
+    !result ||
+    !result.input ||
+    !result.input.partner1 ||
+    !result.input.partner2
+  ) {
     return (
       <section className="min-h-screen flex items-center justify-center bg-white">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-black mb-4">Loading...</h2>
-          <p className="text-gray-600">Please wait while we calculate your results.</p>
+          <p className="text-gray-600">
+            Please wait while we calculate your results.
+          </p>
         </div>
       </section>
     );
@@ -24,9 +35,9 @@ export default function ResultsDisplay({ result, onTryAgain, onBackToHome }: Res
     const shareText = `${result.input.partner1.name} & ${result.input.partner2.name}: ${result.compatibility}% Love Compatibility - ${result.category}`;
     if (navigator.share) {
       navigator.share({
-        title: 'Predikta Love Meter Result',
+        title: "Predikta Love Meter Result",
         text: shareText,
-        url: window.location.href
+        url: window.location.href,
       });
     } else {
       navigator.clipboard.writeText(shareText);
@@ -43,7 +54,7 @@ export default function ResultsDisplay({ result, onTryAgain, onBackToHome }: Res
           className="mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-black text-black mb-8 tracking-tight">
-            COMPATIBILITY RESULT
+            HASIL KECOCOKAN
           </h2>
           <div className="text-2xl md:text-3xl font-bold text-gray-700 mb-4">
             {result.input.partner1.name} & {result.input.partner2.name}
@@ -60,9 +71,13 @@ export default function ResultsDisplay({ result, onTryAgain, onBackToHome }: Res
             <div className="absolute inset-0 border-8 border-gray-200"></div>
             <motion.div
               className="absolute inset-0 border-8 border-accent"
-              initial={{ clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0 100%)' }}
-              animate={{ 
-                clipPath: `polygon(0 100%, 100% 100%, 100% ${100 - result.compatibility}%, 0 ${100 - result.compatibility}%)`
+              initial={{
+                clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)",
+              }}
+              animate={{
+                clipPath: `polygon(0 100%, 100% 100%, 100% ${
+                  100 - result.compatibility
+                }%, 0 ${100 - result.compatibility}%)`,
               }}
               transition={{ delay: 0.5, duration: 1.5, ease: "easeOut" }}
             />
@@ -92,10 +107,11 @@ export default function ResultsDisplay({ result, onTryAgain, onBackToHome }: Res
         >
           <div className="bg-gray-50 border-4 border-gray-200 p-8 max-w-2xl mx-auto">
             <h3 className="text-xl font-bold text-black mb-4 uppercase tracking-wide">
-              ANALYSIS
+              ANALISIS
             </h3>
             <p className="text-gray-700 text-lg leading-relaxed">
-              {result.description || 'Your compatibility has been calculated based on name analysis and birth date compatibility.'}
+              {result.description ||
+                "Kecocokan antara dua orang ini telah dihitung berdasarkan analisis nama."}
             </p>
           </div>
         </motion.div>
@@ -114,7 +130,7 @@ export default function ResultsDisplay({ result, onTryAgain, onBackToHome }: Res
           >
             <div className="flex items-center gap-3">
               <Share2 className="w-5 h-5" />
-              SHARE RESULT
+              BAGIKAN
             </div>
           </motion.button>
 
@@ -126,7 +142,7 @@ export default function ResultsDisplay({ result, onTryAgain, onBackToHome }: Res
           >
             <div className="flex items-center gap-3">
               <RotateCcw className="w-5 h-5" />
-              TRY AGAIN
+              COBA LAGI
             </div>
           </motion.button>
 
@@ -136,7 +152,7 @@ export default function ResultsDisplay({ result, onTryAgain, onBackToHome }: Res
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            HOME
+            BERANDA
           </motion.button>
         </motion.div>
 

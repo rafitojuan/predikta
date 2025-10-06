@@ -41,7 +41,7 @@ export default function LoveMeterForm({ onSubmit, onBack }: LoveMeterFormProps) 
         >
           <div className="flex items-center gap-2">
             <ArrowLeft className="w-5 h-5" />
-            BACK
+            KEMBALI
           </div>
         </motion.button>
 
@@ -52,10 +52,10 @@ export default function LoveMeterForm({ onSubmit, onBack }: LoveMeterFormProps) 
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-black text-black mb-8 tracking-tight">
-            ENTER NAMES
+            MASUKKAN NAMA
           </h2>
           <p className="text-lg text-gray-600 font-medium">
-            Enter both names to calculate compatibility
+            Masukkan nama kedua orang untuk menghitung kecocokan
           </p>
         </motion.div>
 
@@ -71,13 +71,13 @@ export default function LoveMeterForm({ onSubmit, onBack }: LoveMeterFormProps) 
               <div className="border-4 border-black p-8">
                 <label className="flex items-center gap-3 text-black font-bold text-xl mb-6 uppercase tracking-wide">
                   <User className="w-6 h-6" />
-                  PERSON 1
+                  KAMU
                 </label>
                 <input
                   type="text"
                   value={partner1Name}
                   onChange={(e) => setPartner1Name(e.target.value)}
-                  placeholder="Enter first name"
+                  placeholder="Masukkan nama kamu"
                   className="w-full bg-white border-4 border-gray-300 text-black text-lg font-medium p-4 placeholder-gray-500 focus:border-accent focus:outline-none transition-colors"
                   required
                 />
@@ -88,13 +88,13 @@ export default function LoveMeterForm({ onSubmit, onBack }: LoveMeterFormProps) 
               <div className="border-4 border-black p-8">
                 <label className="flex items-center gap-3 text-black font-bold text-xl mb-6 uppercase tracking-wide">
                   <User className="w-6 h-6" />
-                  PERSON 2
+                  DOI
                 </label>
                 <input
                   type="text"
                   value={partner2Name}
                   onChange={(e) => setPartner2Name(e.target.value)}
-                  placeholder="Enter second name"
+                  placeholder="Masukkan nama doi"
                   className="w-full bg-white border-4 border-gray-300 text-black text-lg font-medium p-4 placeholder-gray-500 focus:border-accent focus:outline-none transition-colors"
                   required
                 />
@@ -115,7 +115,7 @@ export default function LoveMeterForm({ onSubmit, onBack }: LoveMeterFormProps) 
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              CALCULATE LOVE
+              KALKULASI
             </motion.button>
           </motion.div>
         </motion.form>

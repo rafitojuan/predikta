@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import { Heart } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Heart } from "lucide-react";
 
 interface HeroSectionProps {
   onStartClick: () => void;
@@ -18,9 +18,9 @@ export default function HeroSection({ onStartClick }: HeroSectionProps) {
           <h1 className="text-6xl md:text-8xl font-black text-black mb-8 tracking-tight">
             PREDIKTA
           </h1>
-          
+
           <div className="flex items-center justify-center mb-8">
-            <Heart className="w-12 h-12 text-accent" />
+            <img src="/heart.svg" alt="heart icon" className="w-12 h-12 mr-2" />
           </div>
         </motion.div>
 
@@ -31,10 +31,10 @@ export default function HeroSection({ onStartClick }: HeroSectionProps) {
           className="mb-16 space-y-6"
         >
           <h2 className="text-2xl md:text-3xl font-bold text-black uppercase tracking-wide">
-            DISCOVER YOUR LOVE COMPATIBILITY
+            PREDIKSI CINTA DARI ALGORITMA
           </h2>
           <p className="text-lg text-gray-600 max-w-xl mx-auto font-medium">
-            Simple. Direct. Honest love predictions.
+            Simple. Direct. Honest.
           </p>
         </motion.div>
 
@@ -47,7 +47,7 @@ export default function HeroSection({ onStartClick }: HeroSectionProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
         >
-          CALCULATE LOVE
+          MULAI
         </motion.button>
 
         <div className="absolute top-20 left-20 w-16 h-16 bg-accent"></div>
