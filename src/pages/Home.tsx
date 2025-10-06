@@ -5,6 +5,7 @@ import LoveMeterForm from '@/components/LoveMeterForm';
 import LoadingAnimation from '@/components/LoadingAnimation';
 import ResultsDisplay from '@/components/ResultsDisplay';
 import ParticleBackground from '@/components/ParticleBackground';
+import Credits from '@/components/Credits';
 import { generateLoveMeterResult } from '@/utils/loveCalculator';
 import { LoveMeterInput, LoveMeterResult } from '@/types';
 
@@ -100,6 +101,8 @@ export default function Home() {
           )}
         </AnimatePresence>
       </div>
+      
+      <Credits />
     </div>
   );
 }
